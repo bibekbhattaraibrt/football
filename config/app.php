@@ -149,6 +149,7 @@ return [
             Third-party Service providers
          */
         LaravelDoctrine\ORM\DoctrineServiceProvider::class,
+        LaravelDoctrine\Migrations\MigrationsServiceProvider::class,
     ],
 
     /*

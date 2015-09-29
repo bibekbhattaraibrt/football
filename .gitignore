@@ -1,9 +1,11 @@
 /bootstrap/compiled.php
+/vendor
+/node_modules
+/.idea
+
 .env.*.php
 .env.php
 .env
-/vendor
-/node_modules
 Homestead.yaml
 Homestead.json
 composer.lock

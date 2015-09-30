@@ -2,7 +2,7 @@
 
 namespace Monks\Entities;
 
-use Doctrine\ORM\Mapping AS ORM;
+use Doctrine\ORM\Mapping as ORM;
 use Doctrine\Common\Collections\ArrayCollection;
 
 /**
@@ -11,7 +11,7 @@ use Doctrine\Common\Collections\ArrayCollection;
  */
 class Taxonomy
 {
-	/**
+    /**
      * @ORM\Id
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
@@ -40,7 +40,7 @@ class Taxonomy
     }
 
     /**
-     * @return integer
+     * @return int
      */
     public function getId()
     {
@@ -48,7 +48,8 @@ class Taxonomy
     }
 
     /**
-     * @param integer $id
+     * @param int $id
+     *
      * @return self
      */
     public function setId($id)
@@ -68,6 +69,7 @@ class Taxonomy
 
     /**
      * @param string $name
+     *
      * @return self
      */
     public function setName($name)
@@ -87,6 +89,7 @@ class Taxonomy
 
     /**
      * @param array $terms
+     *
      * @return self
      */
     public function setTerms($terms)

@@ -71,7 +71,7 @@ class Team
     }
 
     /**
-     * @return integer
+     * @return int
      */
     public function getId()
     {
@@ -79,7 +79,7 @@ class Team
     }
 
     /**
-     * @param integer $id
+     * @param int $id
      */
     protected function setId($id)
     {

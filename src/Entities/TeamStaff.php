@@ -5,14 +5,11 @@ namespace Monks\Entities;
 use Doctrine\ORM\Mapping as ORM;
 use Doctrine\Common\Collections\ArrayCollection;
 
-
 /**
- * Class TeamStaff
- * @package Monks\Entities
+ * Class TeamStaff.
  *
  * @ORM\Entity
  * @ORM\Table(name="staff_associations")
- *
  */
 class TeamStaff
 {
@@ -35,7 +32,7 @@ class TeamStaff
      *
      * @ORM\Column(type="string")
      */
-    protected  $role;
+    protected $role;
 
     /**
      *

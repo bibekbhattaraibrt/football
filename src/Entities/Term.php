@@ -2,7 +2,7 @@
 
 namespace Monks\Entities;
 
-use Doctrine\ORM\Mapping AS ORM;
+use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Mapping\Annotation as Gedmo;
 use Doctrine\Common\Collections\ArrayCollection;
 
@@ -12,7 +12,7 @@ use Doctrine\Common\Collections\ArrayCollection;
  */
 class Term
 {
-	/**
+    /**
      * @ORM\Id
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
@@ -45,7 +45,7 @@ class Term
     }
 
     /**
-     * @return integer
+     * @return int
      */
     public function getId()
     {
@@ -53,7 +53,8 @@ class Term
     }
 
     /**
-     * @param integer $id
+     * @param int $id
+     *
      * @return self
      */
     public function setId($id)
@@ -73,6 +74,7 @@ class Term
 
     /**
      * @param string $name
+     *
      * @return self
      */
     public function setName($name)
@@ -92,6 +94,7 @@ class Term
 
     /**
      * @param string $slug
+     *
      * @return self
      */
     protected function setSlug($slug)
@@ -111,6 +114,7 @@ class Term
 
     /**
      * @param array $taxonomies
+     *
      * @return self
      */
     public function setTaxonomies($taxonomies)

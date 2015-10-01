@@ -6,11 +6,16 @@ use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Mapping\Annotation as Gedmo;
 
 /**
- * Class Post
- * @package Monks\Entities
+ * Class Post.
  *
  * @ORM\Entity
- * @ORM\Table(name="posts")
+ * @ORM\Table(
+ *   name="posts",
+ *   indexes={
+ *     @ORM\Index(name="MYIDX_POST_BODY", columns={"post_body"}, flags={"fulltext"}),
+ *     @ORM\Index(name="MYIDX_POST_TTL", columns={"title"})
+ *   }
+ * )
  */
 class Post
 {
@@ -32,9 +37,9 @@ class Post
      * @var string
      *
      * @Gedmo\Slug(fields={"title"})
-     * @ORM\Column(type="string", name="post_slug", unique=true)
+     * @ORM\Column(type="string", name="slug", unique=true)
      */
-    protected $postSlug;
+    protected $slug;
 
     /**
      * @var string
@@ -56,6 +61,13 @@ class Post
      * @ORM\Column(type="string")
      */
     protected $tags;
+
+    /*
+     * @var string
+     *
+     * @ORM\ManyToOne(targetEntity="Monks\Entities\Author")
+     */
+    protected $author;
 
     /**
      * @return mixed

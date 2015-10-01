@@ -7,7 +7,10 @@ use Doctrine\Common\Collections\ArrayCollection;
 
 /**
  * @ORM\Entity
- * @ORM\Table(name="players")
+ * @ORM\Table(
+ *   name="players",
+ *   indexes={@ORM\Index(name="MYIDX_PLRS_NAME", columns={"name"})}
+ * )
  */
 class Player
 {
@@ -28,12 +31,19 @@ class Player
     /**
      * @var string
      *
-     * @ORM\Column(type="text")
+     * @ORM\Column(type="text", name="short_bio")
      */
     protected $shortBio = '';
 
     /**
+     * Uses a bridge table for M2M mapping: player_associations.
+     *
      * @ORM\ManyToMany(targetEntity="Monks\Entities\Team", mappedBy="players")
+     * @ORM\JoinTable(
+     *   name="player_associations",
+     *   joinColumns={@ORM\JoinColumn(name="player_id", referencedColumnName="id")},
+     *   inverseJoinColumns={@ORM\JoinColumn(name="team_id", referencedColumnName="id", unique=true)}
+     * )
      */
     protected $teams;
 
@@ -103,5 +113,15 @@ class Player
     public function getTeams()
     {
         return $this->teams;
+    }
+
+    public function assignToTeam(Team $team)
+    {
+        $this->teams[] = $team;
+    }
+
+    public function removeFromTeam(Team $team)
+    {
+        $this->teams->removeElement($team);
     }
 }

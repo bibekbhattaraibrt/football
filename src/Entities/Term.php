@@ -8,7 +8,10 @@ use Doctrine\Common\Collections\ArrayCollection;
 
 /**
  * @ORM\Entity
- * @ORM\Table(name="terms")
+ * * @ORM\Table(
+ *   name="terms",
+ *   indexes={@ORM\Index(name="MYIDX_TERM_NAME", columns={"name"})}
+ * )
  */
 class Term
 {

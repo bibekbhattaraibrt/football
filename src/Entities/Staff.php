@@ -3,13 +3,15 @@
 namespace Monks\Entities;
 
 use Doctrine\ORM\Mapping as ORM;
-use Doctrine\Common\Collections\ArrayCollection;
 
 /**
- * Staff
+ * Staff.
  *
  * @ORM\Entity
- * @ORM\Table(name="staffs")
+ * @ORM\Table(
+ *   name="staffs",
+ *   indexes={@ORM\Index(name="MYIDX_STAF_NAME", columns={"name"})}
+ * )
  **/
 class Staff
 {
@@ -35,7 +37,6 @@ class Staff
     protected $shortBio = '';
 
     /**
-     *
      *  @ORM\OneToMany(targetEntity="Monks\Entities\TeamStaff", mappedBy="staffs")
      */
     protected $teamStaffs;

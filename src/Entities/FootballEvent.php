@@ -8,8 +8,11 @@ use Gedmo\Mapping\Annotation as Gedmo;
 /**
  * Class FootballEvent.
  *
- * @ORM\Entity()
- * @ORM\Table(name="football_events")
+ * @ORM\Entity
+ * @ORM\Table(
+ *   name="football_events",
+ *   indexes={@ORM\Index(name="MYIDX_EVT_NAME", columns={"name"})}
+ * )
  */
 class FootballEvent
 {
@@ -38,15 +41,15 @@ class FootballEvent
      * @var string
      *
      * @Gedmo\Slug(fields={"name"})
-     * @ORM\Column(type="string", name="post_slug", unique=true)
+     * @ORM\Column(type="string", name="slug", unique=true)
      */
-    protected $postSlug;
+    protected $slug;
 
     /**
      * @var Taxonomy
      *
      * @ORM\ManyToOne(targetEntity="Monks\Entities\Taxonomy")
-     * @ORM\JoinColumn(name="taxonomy_id", referencedColumnName="id", nullable=false)
+     * @ORM\JoinColumn(name="taxonomy_id", referencedColumnName="id")
      */
     protected $taxonomy;
 
@@ -54,7 +57,7 @@ class FootballEvent
      * @var FootballEvent
      *
      * @ORM\ManyToOne(targetEntity="Monks\Entities\FootballEvent")
-     * @ORM\JoinColumn(name="parent_id", referencedColumnName="id", nullable=true)
+     * @ORM\JoinColumn(name="parent_id", referencedColumnName="id")
      */
     protected $parent;
 

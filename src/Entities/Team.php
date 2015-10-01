@@ -8,7 +8,10 @@ use Doctrine\ORM\Mapping as ORM;
  * Team.
  *
  * @ORM\Entity
- * @ORM\Table(name="teams")
+ * @ORM\Table(
+ *   name="teams",
+ *   indexes={@ORM\Index(name="MYIDX_TEAM_NAME", columns={"name"})}
+ * )
  **/
 class Team
 {

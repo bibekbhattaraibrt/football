@@ -8,7 +8,10 @@ use Doctrine\ORM\Mapping as ORM;
  * Class Attribute.
  *
  * @ORM\Entity
- * @ORM\Table(name="attributes")
+ * @ORM\Table(
+ *   name="attributes",
+ *   indexes={@ORM\Index(name="MYIDX_ATTR_KEY", columns={"key"})}
+ * )
  */
 class Attribute
 {

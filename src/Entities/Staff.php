@@ -50,14 +50,6 @@ class Staff
     }
 
     /**
-     * @param int $id
-     */
-    protected function setId($id)
-    {
-        $this->id = $id;
-    }
-
-    /**
      * @return string
      */
     public function getName()

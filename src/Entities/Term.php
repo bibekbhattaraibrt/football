@@ -8,7 +8,7 @@ use Doctrine\Common\Collections\ArrayCollection;
 
 /**
  * @ORM\Entity
- * * @ORM\Table(
+ * @ORM\Table(
  *   name="terms",
  *   indexes={@ORM\Index(name="MYIDX_TERM_NAME", columns={"name"})}
  * )
@@ -53,18 +53,6 @@ class Term
     public function getId()
     {
         return $this->id;
-    }
-
-    /**
-     * @param int $id
-     *
-     * @return self
-     */
-    public function setId($id)
-    {
-        $this->id = $id;
-
-        return $this;
     }
 
     /**

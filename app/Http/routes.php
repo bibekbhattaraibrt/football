@@ -14,3 +14,19 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::group([
+    'prefix' => 'reporter',
+], function () {
+    Route::get('/', function () {
+        return 'hello';
+    });
+});
+
+Route::group([
+    'prefix' => 'admin',
+], function () {
+    Route::get('/', function () {
+        return view('admin.dashboard');
+    });
+});

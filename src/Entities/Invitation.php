@@ -48,14 +48,6 @@ class Invitation
         return $this->id;
     }
 
-    /**
-     * @param mixed $id
-     */
-    public function setId($id)
-    {
-        $this->id = $id;
-    }
-
     public function getCode()
     {
         return $this->code;

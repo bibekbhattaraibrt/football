@@ -29,4 +29,9 @@ Route::group([
     Route::get('/', function () {
         return view('admin.dashboard');
     });
+    Route::match(
+        ['get', 'post'],
+        'invite/email',
+        'Admin\InviteController@email'
+    );
 });

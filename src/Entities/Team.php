@@ -82,16 +82,6 @@ class Team
     }
 
     /**
-     * @param int $id
-     */
-    protected function setId($id)
-    {
-        $this->id = $id;
-
-        return $this;
-    }
-
-    /**
      * @return string
      */
     public function getName()

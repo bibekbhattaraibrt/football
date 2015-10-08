@@ -33,7 +33,7 @@ class InviteController extends Controller
                 'invite.email.0.required' => 'First row email required',
                 'invite.name.0.required' => 'First row name required',
             ]);
-            if ($validator->fails()) {
+            if ($validator->passes()) {
                 return redirect($request->url())
                     // ->withInput()
                     ->withErrors($validator->errors())
@@ -41,19 +41,17 @@ class InviteController extends Controller
             }
 
             foreach ($request->input('invite.email') as $key => $email) {
-                $name = $request->input('invite.email.'.$key, strstr($email, '@'));
-                \Mail::send('emails.invitation', compact('name'), function ($mail) use ($email, $name) {
+                $name = $request->input('invite.name.'.$key, strstr($email, '@'));
+                \Mail::send('emails.invitation', compact('name', 'email'), function ($mail) use ($email, $name) {
                     $mail
-                        ->from('invitation@footies.report')
+                        ->from('invitation@footies.report', 'Footies Report')
                         ->to($email, $name)
                         ->subject('Invitation to join Footies Report!')
                     ;
                 });
-
-                dd('sent?');
             }
 
-            dd($request->input('invite'));
+            return redirect($request->url());
         }
 
         return view('admin.invite.email', $data);

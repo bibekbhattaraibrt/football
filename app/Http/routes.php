@@ -21,6 +21,10 @@ Route::group([
     Route::get('/', function () {
         return 'hello';
     });
+
+    Route::get('register', function () {
+        return 'registration';
+    });
 });
 
 Route::group([

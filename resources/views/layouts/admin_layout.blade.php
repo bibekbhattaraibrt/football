@@ -5,8 +5,9 @@
 	@include ('admin.partials.nav')
 
     <div class="container">
+    	@include ('admin.partials.messages')
     	@section ('content')
-    		<p>Content coming soon</p>
+    		<p>Coming soon &hellip;</p>
     	@show
 	</div>
 

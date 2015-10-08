@@ -33,7 +33,7 @@ class InviteController extends Controller
                 'invite.email.0.required' => 'First row email required',
                 'invite.name.0.required' => 'First row name required',
             ]);
-            if ($validator->passes()) {
+            if ($validator->fails()) {
                 return redirect($request->url())
                     // ->withInput()
                     ->withErrors($validator->errors())

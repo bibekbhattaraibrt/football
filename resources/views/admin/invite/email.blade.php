@@ -5,10 +5,10 @@
 <form class="form-horizontal" method="post">
   <div class="form-group">
     <div class="col-sm-4">
-      <input type="email" class="required email form-control" placeholder="Email" name="invite[email][]">
+      <input type="email" required="required" class="required email form-control" placeholder="Email" name="invite[email][]">
     </div>
     <div class="col-sm-4">
-      <input type="text" class="required form-control" placeholder="Name" name="invite[name][]">
+      <input type="text" required="required" class="required form-control" placeholder="Name" name="invite[name][]">
     </div>
   </div>
   <div class="form-group">

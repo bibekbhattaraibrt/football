@@ -35,23 +35,30 @@ class InviteController extends Controller
             ]);
             if ($validator->fails()) {
                 return redirect($request->url())
-                    // ->withInput()
+                    ->withInput()
                     ->withErrors($validator->errors())
                 ;
             }
 
             foreach ($request->input('invite.email') as $key => $email) {
-                $name = $request->input('invite.name.'.$key, strstr($email, '@'));
-                \Mail::send('emails.invitation', compact('name', 'email'), function ($mail) use ($email, $name) {
-                    $mail
-                        ->from('invitation@footies.report', 'Footies Report')
-                        ->to($email, $name)
-                        ->subject('Invitation to join Footies Report!')
-                    ;
-                });
+                $name = $request->input('invite.name.'.$key, strstr($email, '@', true));
+                // Sometimes exception is thrown even though mail is sent successfully
+                try {
+                    \Mail::send('emails.invitation', compact('name', 'email'), function ($mail) use ($email, $name) {
+                        $mail
+                            ->from('invitation@footies.report', 'Footies Report')
+                            ->to($email, $name)
+                            ->subject('Invitation to join Footies Report!')
+                        ;
+                    });
+                } catch (\Exception $e) {
+                    // Do nothing
+                }
             }
 
-            return redirect($request->url());
+            return redirect($request->url())
+                ->with('success', 'Processed successfully')
+            ;
         }
 
         return view('admin.invite.email', $data);

@@ -21,7 +21,13 @@
                         <a href="#">Settings</a>
                     </li>
                 </ul>
+
+                <ul class="nav navbar-nav pull-right">
+                    <li><a href="{{ url('admin/logout') }}">Logout</a></li>
+                </ul>
             </div>
+
+
             <!-- /.navbar-collapse -->
         </div>
         <!-- /.container -->

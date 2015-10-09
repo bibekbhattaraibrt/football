@@ -29,6 +29,7 @@ Route::group([
 
 Route::group([
     'prefix' => 'admin',
+    'middleware' => 'footies.admin',
 ], function () {
     Route::get('/', function () {
         return view('admin.dashboard');
@@ -39,3 +40,6 @@ Route::group([
         'Admin\InviteController@email'
     );
 });
+
+Route::any('admin/login', ['as' => 'admin.login','uses' => 'Admin\AuthController@login']);
+Route::any('admin/logout', ['as' => 'admin.logout', 'uses' => 'Admin\AuthController@logout']);

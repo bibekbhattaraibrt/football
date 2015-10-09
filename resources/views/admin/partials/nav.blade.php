@@ -15,10 +15,10 @@
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
                     <li>
-                        <a href="#">Email Invitation</a>
+                        <a href="{{ URL::action('Admin\InviteController@email') }}">Email Invitation</a>
                     </li>
                     <li>
-                        <a href="#">Settings</a>
+                        <a href="{{ URL::action('Admin\InviteController@email') }}">Settings</a>
                     </li>
                 </ul>
             </div>

@@ -21,6 +21,10 @@ Route::group([
     Route::get('/', function () {
         return 'hello';
     });
+
+    Route::get('register', function () {
+        return 'registration';
+    });
 });
 
 Route::group([
@@ -29,4 +33,9 @@ Route::group([
     Route::get('/', function () {
         return view('admin.dashboard');
     });
+    Route::match(
+        ['get', 'post'],
+        'invite/email',
+        'Admin\InviteController@email'
+    );
 });

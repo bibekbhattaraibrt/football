@@ -12,7 +12,9 @@
     "laravel-doctrine/migrations": "^1.0",
     "laravel-doctrine/extensions": "^1.0",
     "gedmo/doctrine-extensions": "^2.4",
-    "laravel-doctrine/acl": "^1.0"
+    "laravel-doctrine/acl": "^1.0",
+    "guzzlehttp/guzzle": "~5.3|~6.0",
+    "pda/pheanstalk": "^3.1"
   },
   "require-dev": {
     "fzaninotto/faker": "~1.4",

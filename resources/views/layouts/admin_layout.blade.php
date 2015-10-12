@@ -6,6 +6,7 @@
 
     <div class="container">
     	@include ('admin.partials.messages')
+
     	@section ('content')
     		<p>Coming soon &hellip;</p>
     	@show

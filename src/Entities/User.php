@@ -23,6 +23,9 @@ class User implements AuthenticatableContract,
                         HasRolesContract,
                         HasPermissionContract
 {
+    /**
+     *
+     */
     const TYPE = 'user';
 
     use Authenticatable, HasRoles, HasPermissions;

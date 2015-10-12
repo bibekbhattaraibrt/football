@@ -2,7 +2,7 @@
 	    	@include('admin.partials.feedback', ['type' => 'success', 'message' => session('success')])
 	@endif
 	@if(session()->has('error'))
-    	@include('admin.partials.feedback', ['type' => 'error', 'message' => session('error')])
+    	@include('admin.partials.feedback', ['type' => 'danger', 'message' => session('error')])
 	@endif
   <!-- validation message -->
 	@if (count($errors) > 0)

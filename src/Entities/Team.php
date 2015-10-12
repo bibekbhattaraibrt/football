@@ -47,6 +47,16 @@ class Team
      */
     protected $teamStaffs;
 
+    /*
+     * @ORM\Column(type="string", name="home_ground",nullable=true)
+     */
+    protected $homeGround;
+
+    /*
+     * @ORM\Column(type="string", name="training_ground", nullable=true)
+     */
+    protected $traningGround;
+
     /**
      *
      */
@@ -87,6 +97,38 @@ class Team
     public function getName()
     {
         return $this->name;
+    }
+
+    /**
+     * @return string homeGround
+     */
+    public function getHomeGround()
+    {
+        return $this->homeGround;
+    }
+
+    /**
+     * @param string $homeGround
+     */
+    public function setHomeGround($homeGround)
+    {
+        $this->homeGround = $homeGround;
+    }
+
+    /**
+     * @return string trainingGround
+     */
+    public function getTraningGround()
+    {
+        return $this->traningGround;
+    }
+
+    /**
+     * @param string $traningGround
+     */
+    public function setTraningGround($traningGround)
+    {
+        $this->traningGround = $traningGround;
     }
 
     /**

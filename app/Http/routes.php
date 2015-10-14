@@ -41,7 +41,14 @@ Route::group([
         'Admin\InviteController@email'
     );
 
+    /*
+        Acl Routes
+    */
     Route::controller('acl', 'Admin\AclController');
+    Route::resource('roles', 'Admin\RoleController', [
+        'only' => ['store', 'index', 'destroy'],
+    ]);
+
 });
 
 Route::any('admin/login', ['as' => 'admin.login','uses' => 'Admin\AuthController@login']);

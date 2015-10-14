@@ -1,5 +1,5 @@
 	@if(session()->has('success'))
-	    	@include('admin.partials.feedback', ['type' => 'success', 'message' => session('success')])
+  	@include('admin.partials.feedback', ['type' => 'success', 'message' => session('success')])
 	@endif
 	@if(session()->has('error'))
     	@include('admin.partials.feedback', ['type' => 'danger', 'message' => session('error')])

@@ -25,9 +25,16 @@ class Role implements RoleContract
     protected $id;
 
     /**
-     * @ORM\Column(type="string")
+     * @ORM\Column(type="string", unique=true)
      */
     protected $name;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(type="string")
+     */
+    protected $description;
 
     /**
      * @return int
@@ -71,5 +78,19 @@ class Role implements RoleContract
         // TODO: Implement getPermissions() method.
     }
 
+    /**
+     * @return string
+     */
+    public function getDescription()
+    {
+        return $this->description;
+    }
 
+    /**
+     * @param string $description
+     */
+    public function setDescription($description)
+    {
+        $this->description = $description;
+    }
 }
